@@ -1,8 +1,6 @@
 import json
 from pathlib import Path
 
-# TODO: load different model for different tasks
-
 def load_config(config_path: str = "config.json") -> dict:
     """Load configuration from json file
     

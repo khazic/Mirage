@@ -3,9 +3,16 @@
         "openai": {
             "api_key": "your-api-key-here",
             "base_url": "https://api.openai.com/v1",
-            "model": "gpt-4-vision-preview",
-            "max_tokens": 1024,
-            "temperature": 0.7,
+            "image_config": {
+                "model": "gpt-4-vision-preview",
+                "max_tokens": 1024,
+                "temperature": 0.7
+            },
+            "video_config": {
+                "model": "gpt-4-vision-preview",
+                "max_tokens": 2048,
+                "temperature": 0.7
+            },
             "concurrency": 5
         }
     },

@@ -70,14 +70,31 @@ class TaskBase(ABC):
 
 class NegativeDescriptionTask(TaskBase):
     """Task for evaluating negative description accuracy"""
-
+    
+    def __init__(self, data_path: str):
+        """Initialize task with test cases"""
+        data = self._load_data(data_path)
+        # Combine image and video tests
+        self.test_cases = data.get("image_tests", []) + data.get("video_tests", [])
+    
     def evaluate_response(self, sample: Sample) -> Dict[str, float]:
-        return {
+        # Add media type specific evaluation logic
+        base_metrics = {
             "logical_consistency": 0.0,
             "relevance": 0.0,
             "clarity": 0.0,
-            "overall": 0.0
         }
+        
+        if sample.media_type == "video":
+            # Add video-specific metrics
+            base_metrics.update({
+                "temporal_accuracy": 0.0,
+                "action_recognition": 0.0
+            })
+        
+        # Calculate overall score
+        base_metrics["overall"] = sum(base_metrics.values()) / len(base_metrics)
+        return base_metrics
 
     def _create_sample(self, test_case: Dict) -> Sample:
         return NegativePrompt.create_sample(test_case)
@@ -117,13 +134,12 @@ class MmomentEvaluator:
         """
         if task_names is None:
             task_names = list(self.tasks.keys())
-            
+
         results = {}
         for name in task_names:
             if name not in self.tasks:
                 raise ValueError(f"Unknown task: {name}")
             results[name] = self.tasks[name](self.model_api)
-            
         return results
 
     def generate_report(self, results: Dict[str, EvalResult]) -> str:

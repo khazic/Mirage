@@ -1,3 +1,3 @@
-from .media import encode_image, encode_video
+from .media import encode_file
 
-__all__ = ['encode_image', 'encode_video'] 
+__all__ = ['encode_file'] 

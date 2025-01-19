@@ -8,14 +8,15 @@ def test_single_image(config):
     """Test single image generation"""
     
     # Initialize API with config
-    server = config["server"]
+    server = config.get("server", "openai")
+    api_config = config["api"][server]
+    
     model_api = ModelAPI(
-        api_key=config["api"][server]["api_key"],
-        base_url = config["api"][server]["base_url"],
-        model=config["api"][server]["model"],
-        max_tokens=config["api"][server]["max_tokens"],
-        temperature=config["api"][server]["temperature"],
-        concurrency=config["api"][server]["concurrency"]
+        api_key=api_config["api_key"],
+        base_url=api_config.get("base_url", "https://api.openai.com/v1"),
+        image_config=api_config["image_config"],
+        video_config=api_config["video_config"],
+        concurrency=api_config["concurrency"]
     )
     
     # Test image path from config

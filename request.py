@@ -5,6 +5,7 @@ import argparse
 import multiprocessing
 import tqdm.asyncio
 import pdb
+import logging
 from typing import List, Optional
 from openai import OpenAI, AsyncOpenAI
 from prompts import Sample
@@ -15,25 +16,35 @@ class ModelAPI:
     
     def __init__(self, 
                  api_key: str,
-                 model: str = "gpt-4-vision-preview",
-                 base_url: str = "https://api.openai.com",
-                 max_tokens: int = 1024,
-                 temperature: float = 0.7,
+                 base_url: str = "https://api.openai.com/v1",
+                 image_config: dict = None,
+                 video_config: dict = None,
                  concurrency: int = 5):
         """Initialize OpenAI API interface
         
         Args:
             api_key: OpenAI API key
-            model: Model to use (default: gpt-4-vision-preview)
-            max_tokens: Maximum tokens in response (default: 1024)
-            temperature: Sampling temperature (default: 0.7)
-            concurrency: Number of concurrent requests (default: 5)
+            base_url: API base URL
+            image_config: Configuration for image processing
+            video_config: Configuration for video processing
+            concurrency: Number of concurrent requests
         """
         self.client = OpenAI(api_key=api_key, base_url=base_url)
         self.async_client = AsyncOpenAI(api_key=api_key, base_url=base_url)
-        self.model = model
-        self.max_tokens = max_tokens
-        self.temperature = temperature
+        
+        # Default configs
+        self.image_config = image_config or {
+            "model": "gpt-4-vision-preview",
+            "max_tokens": 1024,
+            "temperature": 0.7
+        }
+        
+        self.video_config = video_config or {
+            "model": "gpt-4-vision-preview",
+            "max_tokens": 2048,
+            "temperature": 0.7
+        }
+        
         self.concurrency = concurrency
 
     def _prepare_messages(self, sample: Sample) -> List[dict]:
@@ -47,15 +58,35 @@ class ModelAPI:
                     "content": turn["content"]
                 })
         
+        # Handle different media types
+        if sample.media_type == "image":
+            image_path = sample.parameter.get("image_path", "")
+            if not image_path:
+                raise ValueError(f"No image path provided for sample {sample.id}")
+            media_content = {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:image/jpeg;base64,{encode_file(image_path)}"
+                }
+            }
+        else:  # video
+            video_path = sample.parameter.get("video_path", "")
+            if not video_path:
+                raise ValueError(f"No video path provided for sample {sample.id}")
+            media_content = {
+                "type": "video_url",
+                "video_url": {
+                    "url": f"data:video/mp4;base64,{encode_file(video_path)}"
+                }
+            }
+            # Add timestamp if provided
+            if "timestamp" in sample.parameter:
+                media_content["timestamp"] = sample.parameter["timestamp"]
+        
         messages.append({
             "role": "user",
             "content": [
-                {
-                    "type": "image_url",
-                    "image_url": {
-                        "url": encode_file(sample.parameter.get("image_path", ""))
-                    }
-                },
+                media_content,
                 {
                     "type": "text",
                     "text": sample.prompt
@@ -65,20 +96,30 @@ class ModelAPI:
 
         return messages
 
+    def _get_config_for_sample(self, sample: Sample) -> dict:
+        """Get appropriate configuration based on media type"""
+        if sample.media_type == "video":
+            if not self.video_config:
+                raise ValueError("Video configuration not set")
+            return self.video_config
+        return self.image_config
+
     async def _process_sample(self, sample: Sample, semaphore: asyncio.Semaphore) -> Optional[str]:
         """Process a single sample with rate limiting"""
         async with semaphore:
             try:
                 messages = self._prepare_messages(sample)
+                config = self._get_config_for_sample(sample)
+                
                 response = await self.async_client.chat.completions.create(
-                    model=self.model,
+                    model=config["model"],
                     messages=messages,
-                    max_tokens=self.max_tokens,
-                    temperature=self.temperature
+                    max_tokens=config["max_tokens"],
+                    temperature=config["temperature"]
                 )
                 return response.choices[0].message.content
             except Exception as e:
-                print(f"Error processing sample {sample.id}: {str(e)}")
+                logging.error(f"Error processing sample {sample.id}: {str(e)}")
                 return None
 
     async def _batch_process(self, samples: List[Sample], output_file: str):
@@ -98,7 +139,7 @@ class ModelAPI:
                         "prompt": sample.prompt,
                         "response": response,
                         "parameter": sample.parameter,
-                        "generate_model": self.model
+                        "generate_model": self.image_config["model"]
                     })
 
     def __call__(self, samples: List[Sample], output_file: str):
@@ -111,39 +152,28 @@ class ModelAPI:
         asyncio.run(self._batch_process(samples, output_file))
 
     def generate(self, prompt: str, file_path: str, type: str = "image") -> str:
-        """Simple synchronous interface for single image-text generation
+        """Simple synchronous interface for single media generation"""
+        config = self.video_config if type == "video" else self.image_config
         
-        Args:
-            prompt: Text prompt
-            file_path: Path to path
-            type: Type of input (image or video)
-            
-        Returns:
-            Generated response
-        """
-        assert type in ["image", "video"], "Invalid input type, only 'image' or 'video' allowed"
-        type = "image_url" if type == "image" else "video_url"
         response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": type,
-                            type: {
-                                "url": encode_file(file_path)
-                            }
-                        },
-                        {
-                            "type": "text",
-                            "text": prompt
+            model=config["model"],
+            messages=[{
+                "role": "user",
+                "content": [
+                    {
+                        "type": f"{type}_url",
+                        f"{type}_url": {
+                            "url": f"data:{type}/{'mp4' if type == 'video' else 'jpeg'};base64,{encode_file(file_path)}"
                         }
-                    ]
-                }
-            ],
-            max_tokens=self.max_tokens,
-            temperature=self.temperature
+                    },
+                    {
+                        "type": "text",
+                        "text": prompt
+                    }
+                ]
+            }],
+            max_tokens=config["max_tokens"],
+            temperature=config["temperature"]
         )
         return response.choices[0].message.content
 
@@ -162,29 +192,3 @@ def parse_inputs(sample: Sample) -> str:
     else:
         inputs = sample.prompt
     return inputs
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--input_file", type=str, required=True, help="Input file containing samples to be processed")
-    parser.add_argument("--output_file", type=str, required=True, help="Output file to store the results")
-    parser.add_argument("--urls", type=str, nargs="+", required=True, help="List of URLs to send the requests")
-    parser.add_argument("--concurrency", type=int, default=256, help="Number of concurrent requests to be sent")
-    args = parser.parse_args()
-    input_file = args.input_file
-    output_file = args.output_file
-    urls = args.urls
-    concurrency = args.concurrency
-
-    data = [line["input"] for line in jsonlines.open(input_file, "r")]
-    # use multiprocessing to send requests
-    PER_PROCESS_CONCURRENCY = 256
-    num_process = (concurrency + PER_PROCESS_CONCURRENCY - 1) // PER_PROCESS_CONCURRENCY
-    writers = [jsonlines.open(f"{output_file}_{i}", "w") for i in range(num_process)]
-    datas = [data[i * len(data) // num_process: (i + 1) * len(data) // num_process] for i in range(num_process)]
-    with multiprocessing.Pool(num_process) as pool:
-        pool.starmap(main, [(i, datas[i], f"{output_file}_{i}", urls, PER_PROCESS_CONCURRENCY) for i in range(num_process)])
-    with jsonlines.open(output_file, "w") as writer:
-        for i in range(num_process):
-            for line in jsonlines.open(f"{output_file}_{i}", "r"):
-                writer.write(line)

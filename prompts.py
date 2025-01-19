@@ -1,5 +1,5 @@
-from dataclasses import dataclass
-from typing import List, Dict, Optional
+from dataclasses import dataclass, field
+from typing import List, Dict, Optional, Literal
 
 @dataclass
 class Conversation:
@@ -9,13 +9,14 @@ class Conversation:
 
 @dataclass
 class Sample:
-    """Represents a test sample for evaluation"""
+    """Sample data class for model input/output"""
     id: str
     prompt: str
-    history: List[Dict[str, str]]
-    parameter: Optional[Dict] = None
+    parameter: Dict = field(default_factory=dict)
+    history: List[Dict] = field(default_factory=list)
     generate_model: Optional[str] = None
     response: Optional[str] = None
+    media_type: Literal["image", "video"] = "image"
 
 class PromptTemplate:
     """Base class for prompt templates"""
@@ -62,15 +63,21 @@ Remember:
     
     @staticmethod
     def create_sample(test_case: Dict) -> Sample:
-        """Create a sample from test case"""
-        sample = Sample(
+        media_type = "video" if test_case.get("video_path") else "image"
+        return Sample(
             id=test_case["id"],
             prompt=test_case["prompt"],
-            history=test_case.get("history", [{"role": "system", "content": NegativePrompt.get_system_prompt()}]),
-            parameter=test_case.get("parameter"),
-            generate_model=test_case.get("generate_model")
+            parameter={
+                "image_path": test_case.get("image_path"),
+                "video_path": test_case.get("video_path"),
+                "ground_truth": test_case.get("ground_truth"),
+                "difficulty": test_case.get("difficulty", "medium"),
+                "timestamp": test_case.get("timestamp")
+            },
+            history=[],
+            generate_model=None,
+            media_type=media_type
         )
-        return sample
 
 class MultiEntityPrompt(PromptTemplate):
     """Template for multi-entity recall task"""
@@ -103,14 +110,20 @@ Remember to be thorough and systematic in your analysis."""
     
     @staticmethod
     def create_sample(test_case: Dict) -> Sample:
-        """Create a sample from test case"""
-        sample = Sample(
+        media_type = "video" if test_case.get("video_path") else "image"
+        return Sample(
             id=test_case["id"],
             prompt=test_case["prompt"],
-            history=test_case.get("history", [{"role": "system", "content": MultiEntityPrompt.get_system_prompt()}]),
-            parameter=test_case.get("parameter"),
-            generate_model=test_case.get("generate_model")
+            parameter={
+                "image_path": test_case.get("image_path"),
+                "video_path": test_case.get("video_path"),
+                "ground_truth": test_case.get("ground_truth"),
+                "difficulty": test_case.get("difficulty", "medium"),
+                "timestamp": test_case.get("timestamp")
+            },
+            history=[],
+            generate_model=None,
+            media_type=media_type
         )
-        return sample
 
 # Add more prompt templates for other tasks...

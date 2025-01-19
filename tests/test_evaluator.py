@@ -2,8 +2,14 @@ import unittest
 from pathlib import Path
 import json
 import tempfile
-from Mmoment.evaluator import MmomentEvaluator, NegativeDescriptionTask, MultiEntityTask
-from Mmoment.request import ModelAPI
+import shutil
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from evaluator import MmomentEvaluator, NegativeDescriptionTask, MultiEntityTask
+from request import ModelAPI
 
 class MockModelAPI:
     """Mock model API for testing"""
@@ -32,7 +38,6 @@ Environmental Features:
 - clock on wall"""
         }
         
-        # Write mock responses to output file
         with open(output_file, 'w') as f:
             for sample in samples:
                 sample.response = responses.get(sample.id, "Mock response")
@@ -44,7 +49,6 @@ Environmental Features:
 
 class TestEvaluator(unittest.TestCase):
     def setUp(self):
-        # Create temporary test data files
         self.temp_dir = tempfile.mkdtemp()
         self.negative_cases = [
             {
@@ -77,7 +81,6 @@ class TestEvaluator(unittest.TestCase):
             }
         ]
         
-        # Write test cases to temporary files
         self.negative_file = Path(self.temp_dir) / "negative_cases.json"
         self.multi_entity_file = Path(self.temp_dir) / "multi_entity_cases.json"
         
@@ -86,16 +89,13 @@ class TestEvaluator(unittest.TestCase):
         with open(self.multi_entity_file, 'w') as f:
             json.dump(self.multi_entity_cases, f)
         
-        # Create mock model API
         self.model_api = MockModelAPI()
         
-        # Initialize tasks
         self.tasks = {
             "negative": NegativeDescriptionTask(str(self.negative_file)),
             "multi_entity": MultiEntityTask(str(self.multi_entity_file))
         }
         
-        # Create evaluator
         self.evaluator = MmomentEvaluator(self.model_api, self.tasks)
 
     def test_negative_task_evaluation(self):
@@ -105,7 +105,6 @@ class TestEvaluator(unittest.TestCase):
         self.assertIn("negative", results)
         result = results["negative"]
         
-        # Check metrics structure
         self.assertIsInstance(result.score, float)
         self.assertIn("logical_consistency", result.metrics)
         self.assertIn("relevance", result.metrics)
@@ -119,7 +118,6 @@ class TestEvaluator(unittest.TestCase):
         self.assertIn("multi_entity", results)
         result = results["multi_entity"]
         
-        # Check metrics structure
         self.assertIsInstance(result.score, float)
         self.assertIn("entity_recall", result.metrics)
         self.assertIn("attribute_accuracy", result.metrics)
@@ -131,7 +129,6 @@ class TestEvaluator(unittest.TestCase):
         results = self.evaluator.evaluate()
         report = self.evaluator.generate_report(results)
         
-        # Check report format
         self.assertIsInstance(report, str)
         self.assertIn("<html>", report)
         self.assertIn("Evaluation Report", report)
@@ -144,8 +141,6 @@ class TestEvaluator(unittest.TestCase):
             self.evaluator.evaluate(["invalid_task"])
 
     def tearDown(self):
-        # Clean up temporary files
-        import shutil
         shutil.rmtree(self.temp_dir)
 
 if __name__ == '__main__':

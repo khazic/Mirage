@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
 import json
 import jsonlines
-from .prompts import Sample
+from prompts import *
 
 @dataclass
 class EvalResult:
@@ -80,7 +80,6 @@ class NegativeDescriptionTask(TaskBase):
         }
 
     def _create_sample(self, test_case: Dict) -> Sample:
-        from .prompts import NegativePrompt
         return NegativePrompt.create_sample(test_case)
 
 class MultiEntityTask(TaskBase):
@@ -95,7 +94,6 @@ class MultiEntityTask(TaskBase):
         }
 
     def _create_sample(self, test_case: Dict) -> Sample:
-        from .prompts import MultiEntityPrompt
         return MultiEntityPrompt.create_sample(test_case)
 
 class MmomentEvaluator:

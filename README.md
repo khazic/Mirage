@@ -35,3 +35,9 @@ Multi-Modal Modeling and Evaluation on Novel Tasks
 
 ## 任务设计
 针对上述每个场景，我们将设计不同难度的任务（easy/hard），以全面评估模型在多模态任务中的表现和改进空间。
+
+## 使用指南
+
+config_tmp.json -> your own config.json
+
+TODO: 

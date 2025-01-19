@@ -7,92 +7,8 @@ import tqdm.asyncio
 import pdb
 from typing import List, Optional
 from openai import OpenAI, AsyncOpenAI
-from .prompts import Sample
-
-async def fetch(url, headers, data, writer, semaphore):
-    retry_times = 0
-    while True:
-        try:
-            if retry_times > 5:
-                print("retry 5 times, pass")
-                return
-            retry_times += 1
-            async with semaphore:
-                async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(-1)) as session:
-                    sample = data["sample"]
-                    del data["sample"]
-                    async with session.post(url, headers=headers, json=data, timeout=300) as response:
-                        response_json = await response.json()
-                        sample.response = response_json["generated_text"]
-                        writer.write({"prompt": sample.prompt,
-                                      "response": sample.response,
-                                      "id": sample.id,
-                                      "history": sample.history,
-                                      "parameter": sample.parameter,
-                                      "generate_model": sample.generate_model
-                                      })
-                        return
-        except Exception as e:
-            await asyncio.sleep(1)
-
-
-async def async_main(pid, data, writer, urls, concurrency):
-    headers = {
-        "Content-Type": "application/json",
-    }
-    def parse_inputs(_sample):
-        if "<|user|>" not in _sample.prompt:
-            inputs = ""
-            for _history in _sample.history:
-                role_mapper = {"system": "<|system|>", "user": "<|user|>", "assistant": "<|assistant|>"}
-                inputs += f"{role_mapper[_history['role']]}\n{_history['content']}"
-            inputs += f"<|user|>\n{_sample.prompt}<|assistant|>\n"
-        else:
-            inputs = _sample.prompt
-        return inputs
-    post_requests = [{
-        "stream": False,
-        "inputs": parse_inputs(sample),
-        "parameters": {
-            "best_of": 1,
-            "decoder_input_details": False,
-            "details": False,
-            "do_sample": True,
-            "max_new_tokens": 1024,
-            "return_full_text": False,
-            "seed": None,
-            "temperature": 0.95,
-            "top_p": 0.8,
-            "truncate": 7168,
-            "stop": ["<|endoftext|>", "<|user|>", "<|observation|>"]
-        },
-        "sample": sample
-    } for sample in data]
-    semaphore = asyncio.Semaphore(concurrency)
-    # conn = aiohttp.TCPConnector(limit=concurrency*2)
-    # async with aiohttp.ClientSession(connector=conn) as session:
-    tasks = [fetch(urls[i % len(urls)], headers, post_request, writer, semaphore) for i, post_request in enumerate(post_requests)]
-    await tqdm.asyncio.tqdm_asyncio.gather(*tasks, position=pid, desc=f"Process {pid}")
-
-
-def main(pid, data, output_file, urls, concurrency):
-    writer = jsonlines.open(output_file, "w")
-    asyncio.run(async_main(pid, data, writer, urls, concurrency))
-
-
-def request_calls(_prompts, _urls, output_file, concurrency=1024, _PER_PROCESS_CONCURRENCY=128):
-    # use multiprocessing to send requests
-    num_process = (concurrency + _PER_PROCESS_CONCURRENCY - 1) // _PER_PROCESS_CONCURRENCY
-    writers = [jsonlines.open(output_file.replace(".jsonl", f"_{i}.jsonl"), "w") for i in range(num_process)]
-    datas = [_prompts[i * len(_prompts) // num_process: (i + 1) * len(_prompts) // num_process] for i in range(num_process)]
-    with multiprocessing.Pool(num_process) as pool:
-        pool.starmap(main,
-                     [(i, datas[i], output_file.replace(".jsonl", f"_{i}.jsonl"), _urls, _PER_PROCESS_CONCURRENCY) for i in range(num_process)])
-    with jsonlines.open(output_file, "w") as writer:
-        for i in range(num_process):
-            for line in jsonlines.open(output_file.replace(".jsonl", f"_{i}.jsonl"), "r"):
-                writer.write(line)
-
+from prompts import Sample
+from utils.media import encode_file
 
 class ModelAPI:
     """Interface for model API calls"""
@@ -100,6 +16,7 @@ class ModelAPI:
     def __init__(self, 
                  api_key: str,
                  model: str = "gpt-4-vision-preview",
+                 base_url: str = "https://api.openai.com",
                  max_tokens: int = 1024,
                  temperature: float = 0.7,
                  concurrency: int = 5):
@@ -112,18 +29,17 @@ class ModelAPI:
             temperature: Sampling temperature (default: 0.7)
             concurrency: Number of concurrent requests (default: 5)
         """
-        self.client = OpenAI(api_key=api_key)
-        self.async_client = AsyncOpenAI(api_key=api_key)
+        self.client = OpenAI(api_key=api_key, base_url=base_url)
+        self.async_client = AsyncOpenAI(api_key=api_key, base_url=base_url)
         self.model = model
         self.max_tokens = max_tokens
         self.temperature = temperature
         self.concurrency = concurrency
-        
+
     def _prepare_messages(self, sample: Sample) -> List[dict]:
         """Prepare messages for OpenAI API"""
         messages = []
-        
-        # Add system prompt if present
+
         for turn in sample.history:
             if turn["role"] == "system":
                 messages.append({
@@ -131,13 +47,14 @@ class ModelAPI:
                     "content": turn["content"]
                 })
         
-        # Add image and prompt
         messages.append({
             "role": "user",
             "content": [
                 {
-                    "type": "image",
-                    "image_url": sample.parameter.get("image_path", "")
+                    "type": "image_url",
+                    "image_url": {
+                        "url": encode_file(sample.parameter.get("image_path", ""))
+                    }
                 },
                 {
                     "type": "text",
@@ -145,7 +62,7 @@ class ModelAPI:
                 }
             ]
         })
-        
+
         return messages
 
     async def _process_sample(self, sample: Sample, semaphore: asyncio.Semaphore) -> Optional[str]:
@@ -193,16 +110,19 @@ class ModelAPI:
         """
         asyncio.run(self._batch_process(samples, output_file))
 
-    def generate(self, prompt: str, image_path: str) -> str:
+    def generate(self, prompt: str, file_path: str, type: str = "image") -> str:
         """Simple synchronous interface for single image-text generation
         
         Args:
             prompt: Text prompt
-            image_path: Path to image
+            file_path: Path to path
+            type: Type of input (image or video)
             
         Returns:
             Generated response
         """
+        assert type in ["image", "video"], "Invalid input type, only 'image' or 'video' allowed"
+        type = "image_url" if type == "image" else "video_url"
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[
@@ -210,8 +130,10 @@ class ModelAPI:
                     "role": "user",
                     "content": [
                         {
-                            "type": "image",
-                            "image_url": image_path
+                            "type": type,
+                            type: {
+                                "url": encode_file(file_path)
+                            }
                         },
                         {
                             "type": "text",

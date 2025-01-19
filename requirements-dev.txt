@@ -1,0 +1,6 @@
+-e .[dev,test,docs]
+
+# Additional development tools
+ipython>=8.16.0
+jupyter>=1.0.0
+notebook>=7.0.0 

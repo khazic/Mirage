@@ -1,43 +1,155 @@
 # Mmoment
 Multi-Modal Modeling and Evaluation on Novel Tasks
 
-## 介绍
-本项目旨在评估和改进大型视觉语言模型（LVLM）在多模态任务中的表现。我们针对不同场景设计了一系列基准测试，以识别模型在处理复杂任务时的优势和不足。
+## Introduction
+This project aims to evaluate and improve Large Vision Language Models (LVLMs) in multimodal tasks. We designed a series of benchmarks to identify model strengths and limitations in handling complex tasks.
 
-## 基准测试场景
+## Installation
 
-### 1. 否定描述的准确性问题
-- **目的**：评估模型在处理否定样本时的准确性，识别其在判断不存在内容时的局限性。
+1. Clone the repository:
+```bash
+git clone https://github.com/khazic/Mmoment
+cd Mmoment
+```
 
-### 2. 多实体召回问题
-- **目的**：测试模型在多物体场景中的召回能力，分析其对主要和次要物体的识别能力。
+2. Install dependencies:
+```bash
+pip install -e .
+```
 
-### 3. 程度理解问题
-- **目的**：评估模型对物体相对属性的判断能力，探索其在主观评判标准下的表现。
+3. Configure:
+```bash
+cp config_tmp.json config.json
+# Edit config.json with your API key and settings
+```
 
-### 4. 位置信息理解问题
-- **目的**：分析模型对绝对和相对位置信息的理解能力，识别其在空间关系判断中的不足。
+## Quick Start
 
-### 5. 视频时序判断问题
-- **目的**：测试模型在视频场景中定位特定时间点的能力，评估其对时序信息的理解。
+1. Prepare test data:
+```bash
+mkdir -p data/inputs/images
+mkdir -p data/inputs/videos
+# Place your test images and videos in respective directories
+```
 
-### 6. 标志性识别问题
-- **目的**：评估模型对品牌标志和知名人物的识别能力，分析其在特定文化符号理解上的表现。
+2. Run single test:
+```bash
+python test_api.py
+```
 
-### 7. 指令跟随能力
-- **目的**：测试模型在执行特定指令时的准确性，评估其遵循指令约束的能力。
+3. Run full evaluation:
+```bash
+python evaluate_task.py
+```
 
-### 8. 计数能力
-- **目的**：评估模型在不同复杂度场景下的计数准确性，分析其在简单与复杂场景中的表现差异。
+## Project Structure
+```
+Mmoment/
+├── data/
+│   ├── inputs/          # Test data
+│   │   ├── images/      # Test images
+│   │   └── videos/      # Test videos
+│   └── outputs/         # Model outputs
+├── results/             # Evaluation results
+├── logs/               # Log files
+└── config.json         # Configuration file
+```
 
-### 9. 复杂图表信息提取
-- **目的**：测试模型对结构化信息的理解和提取能力，评估其在处理复杂数据格式时的表现。
+## Benchmark Tasks
 
-## 任务设计
-针对上述每个场景，我们将设计不同难度的任务（easy/hard），以全面评估模型在多模态任务中的表现和改进空间。
+### 1. Negative Description Accuracy
+- **Purpose**: Evaluate model accuracy in handling negative samples
+- **Example**:
+```json
+{
+    "id": "neg_001",
+    "prompt": "Is there a banana on the table?",
+    "image_path": "data/inputs/images/apple_on_table.jpg",
+    "ground_truth": "No, there is no banana on the table."
+}
+```
 
-## 使用指南
+### 2. Multi-Entity Recall
+- **Purpose**: Test model's recall ability in multi-object scenes
+- **Metrics**: Entity recall rate, attribute accuracy, relationship coverage
 
-config_tmp.json -> your own config.json
+[Additional tasks as described in README-desc.md...]
 
-TODO: 
+## Configuration
+
+Main config.json settings:
+```json
+{
+    "api": {
+        "openai": {
+            "api_key": "your-api-key",
+            "image_config": {
+                "model": "gpt-4-vision-preview",
+                "max_tokens": 1024
+            },
+            "video_config": {
+                "model": "gpt-4-vision-preview",
+                "max_tokens": 2048
+            }
+        }
+    }
+}
+```
+
+## Evaluation Results
+
+Results are saved in results/ directory:
+- metrics_{timestamp}.json: Detailed metrics
+- report_{timestamp}.html: Visual report
+
+## Custom Evaluation
+
+1. Create new test data:
+```json
+# data/inputs/custom_test.json
+{
+    "image_tests": [],
+    "video_tests": []
+}
+```
+
+2. Implement new evaluation task:
+```python
+from evaluator import TaskBase
+
+class CustomTask(TaskBase):
+    def evaluate_response(self, sample: Sample) -> Dict[str, float]:
+        # Implement evaluation logic
+        pass
+```
+
+## Notes
+
+1. API Usage
+- Ensure sufficient API quota
+- Video evaluation may require more tokens
+- Set reasonable concurrency
+
+2. Data Preparation
+- Supported image formats: jpg, png
+- Supported video formats: mp4
+- Control media file size
+
+3. Security
+- Don't commit config.json to version control
+- Protect API keys
+
+## TODO
+- [ ] Add more evaluation scenarios
+- [ ] Support more model backends
+- [ ] Improve evaluation metrics
+- [ ] Add batch testing support
+- [ ] Enhance report visualization
+
+## Contributing
+
+Issues and Pull Requests are welcome!
+
+## License
+
+MIT License

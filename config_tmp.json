@@ -1,0 +1,21 @@
+{
+    "api": {
+        "openai": {
+            "api_key": "your-api-key-here",
+            "base_url": "https://api.openai.com/v1",
+            "model": "gpt-4-vision-preview",
+            "max_tokens": 1024,
+            "temperature": 0.7,
+            "concurrency": 5
+        }
+    },
+    "data": {
+        "input_dir": "data/inputs",
+        "output_dir": "data/outputs",
+        "results_dir": "results"
+    },
+    "logging": {
+        "level": "INFO",
+        "file": "logs/mmoment.log"
+    }
+} 

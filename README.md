@@ -73,7 +73,88 @@ Mmoment/
 - **Purpose**: Test model's recall ability in multi-object scenes
 - **Metrics**: Entity recall rate, attribute accuracy, relationship coverage
 
-[Additional tasks as described in README-desc.md...]
+### 3. Degree Understanding
+- **Purpose**: Evaluate model's ability to understand relative attributes and degree descriptions
+- **Example**:
+```json
+{
+    "id": "degree_001",
+    "prompt": "Is this heavy rain, moderate rain, or light rain?",
+    "image_path": "data/inputs/images/rain.jpg",
+    "ground_truth": "moderate rain",
+    "metrics": ["accuracy", "confidence_score"]
+}
+```
+
+### 4. Spatial Relationship Understanding
+- **Purpose**: Evaluate model's comprehension of spatial relationships
+- **Example**:
+```json
+{
+    "id": "spatial_001",
+    "prompt": "What is the position of the red square relative to the blue circle?",
+    "image_path": "data/inputs/images/shapes.jpg",
+    "ground_truth": "The red square is to the left of the blue circle",
+    "type": "relative_position"
+}
+```
+
+### 5. Iconic Feature Recognition
+- **Purpose**: Test model's ability to recognize brand logos and famous figures
+- **Example**:
+```json
+{
+    "id": "icon_001",
+    "prompt": "Describe this iconic character",
+    "image_path": "data/inputs/images/mcdonalds_mascot.jpg",
+    "ground_truth": "Ronald McDonald, the McDonald's brand mascot",
+    "attributes": ["brand_recognition", "character_identification"]
+}
+```
+
+### 6. Instruction Following
+- **Purpose**: Test model's ability to strictly follow given instructions
+- **Example**:
+```json
+{
+    "id": "instruction_001",
+    "prompt": "Only describe the red objects in the image",
+    "image_path": "data/inputs/images/mixed_objects.jpg",
+    "ground_truth": "There is a red apple and a red backpack",
+    "constraints": ["only_red_objects"]
+}
+```
+
+### 7. Counting Accuracy
+- **Purpose**: Evaluate model's counting ability in various scenarios
+- **Example**:
+```json
+{
+    "id": "counting_001",
+    "prompt": "How many people are in the image?",
+    "image_path": "data/inputs/images/crowd.jpg",
+    "ground_truth": "27",
+    "difficulty": "complex",
+    "metrics": ["exact_match", "error_margin"]
+}
+```
+
+### 8. Chart Information Extraction
+- **Purpose**: Assess model's ability to extract and understand structured information
+- **Example**:
+```json
+{
+    "id": "chart_001",
+    "prompt": "Extract the sales data for Q2 2023",
+    "image_path": "data/inputs/images/sales_chart.jpg",
+    "ground_truth": {
+        "q2_2023": {
+            "revenue": 1250000,
+            "growth_rate": "15%"
+        }
+    }
+}
+```
 
 ## Configuration
 

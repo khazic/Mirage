@@ -16,7 +16,7 @@ parser.add_argument('--output_path', type=str, default='./sptial_qwen25_3b.json'
 # 修改为支持多个 json 文件
 parser.add_argument('--data_jsons', type=str, nargs='+',
                     default=['/mnt/workspace/fengli/data/1.json', '/mnt/workspace/fengli/data/2.json'])
-parser.add_argument('--img_root', type=str, default='/mnt/workspace/fengli/data/your_image_root')
+parser.add_argument('--img_root', type=str, default='Mmoment/Mmoment_dataset/Absolute_relative_positions/')
 args = parser.parse_args()
 
 CLASSIFICATION_BASE_PROMPT = (

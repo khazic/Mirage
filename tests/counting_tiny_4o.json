@@ -1,0 +1,402 @@
+[
+    {
+        "id": "counting_332",
+        "question": "How many baskball are in the image? ",
+        "image_path": "counting/images/counting_332.jpg",
+        "ground_truth": 6,
+        "model_answer": "```json\n{\"answer\": 6}\n```",
+        "parsed_answer": 6
+    },
+    {
+        "id": "counting_94",
+        "question": "How many chopstick are in the image? ",
+        "image_path": "counting/images/counting_94.jpg",
+        "ground_truth": 10,
+        "model_answer": "```json\n{\"answer\": 8}\n```",
+        "parsed_answer": 8
+    },
+    {
+        "id": "counting_490",
+        "question": "How many letter G are in the image? ",
+        "image_path": "counting/images/counting_490.jpg",
+        "ground_truth": 3,
+        "model_answer": "",
+        "parsed_answer": "NaN"
+    },
+    {
+        "id": "counting_121",
+        "question": "How many tomato are in the image? ",
+        "image_path": "counting/images/counting_121.jpg",
+        "ground_truth": 5,
+        "model_answer": "```json\n{\"answer\": 5}\n```",
+        "parsed_answer": 5
+    },
+    {
+        "id": "counting_282",
+        "question": "How many banana are in the image? ",
+        "image_path": "counting/images/counting_282.jpg",
+        "ground_truth": 0,
+        "model_answer": "```json\n{\"answer\": 0}\n```",
+        "parsed_answer": 0
+    },
+    {
+        "id": "counting_85",
+        "question": "How many book are in the image? ",
+        "image_path": "counting/images/counting_85.jpg",
+        "ground_truth": 10,
+        "model_answer": "```json\n{\"answer\": 10}\n```",
+        "parsed_answer": 10
+    },
+    {
+        "id": "counting_315",
+        "question": "How many tape are in the image? ",
+        "image_path": "counting/images/counting_315.jpg",
+        "ground_truth": 47,
+        "model_answer": "```json\n{\"answer\": 16}\n```",
+        "parsed_answer": 16
+    },
+    {
+        "id": "counting_298",
+        "question": "How many cat are in the image? ",
+        "image_path": "counting/images/counting_298.jpg",
+        "ground_truth": 0,
+        "model_answer": "```json\n{\"answer\": 0}\n```",
+        "parsed_answer": 0
+    },
+    {
+        "id": "counting_168",
+        "question": "How many stick are in the image? ",
+        "image_path": "counting/images/counting_168.jpg",
+        "ground_truth": 17,
+        "model_answer": "```json\n{\"answer\": 19}\n```",
+        "parsed_answer": 19
+    },
+    {
+        "id": "recall_79",
+        "question": "How many digital signboards are in the image? ",
+        "image_path": "entity_recall/images/recall_79.jpg",
+        "ground_truth": 4,
+        "model_answer": "```json\n{\"answer\": 4}\n```",
+        "parsed_answer": 4
+    },
+    {
+        "id": "counting_426",
+        "question": "How many caps are in the image? ",
+        "image_path": "counting/images/counting_426.jpg",
+        "ground_truth": 15,
+        "model_answer": "```json\n{\"answer\": 0}\n```",
+        "parsed_answer": 0
+    },
+    {
+        "id": "counting_204",
+        "question": "How many bird are in the image? ",
+        "image_path": "counting/images/counting_204.jpg",
+        "ground_truth": 2,
+        "model_answer": "```json\n{\"answer\": 2}\n```",
+        "parsed_answer": 2
+    },
+    {
+        "id": "counting_322",
+        "question": "How many volumes are in the image? ",
+        "image_path": "counting/images/counting_322.jpg",
+        "ground_truth": 5,
+        "model_answer": "```json\n{\"answer\": 6}\n```",
+        "parsed_answer": 6
+    },
+    {
+        "id": "counting_462",
+        "question": "How many white rose are in the image? ",
+        "image_path": "counting/images/counting_462.jpg",
+        "ground_truth": 6,
+        "model_answer": "```json\n{\"answer\": 4}\n```",
+        "parsed_answer": 4
+    },
+    {
+        "id": "counting_453",
+        "question": "How many shoe are in the image? ",
+        "image_path": "counting/images/counting_453.jpg",
+        "ground_truth": 2,
+        "model_answer": "```json\n{\"answer\": 2}\n```",
+        "parsed_answer": 2
+    },
+    {
+        "id": "counting_506",
+        "question": "How many people are there in the picture? ",
+        "image_path": "count2/counting2/counting_506.jpg",
+        "ground_truth": 1,
+        "model_answer": "```json\n{\"answer\": 8}\n```",
+        "parsed_answer": 8
+    },
+    {
+        "id": "recall_150",
+        "question": "How many office chairs are in the image? ",
+        "image_path": "entity_recall/images/recall_150.jpg",
+        "ground_truth": 9,
+        "model_answer": "```json\n{\"answer\": 6}\n```",
+        "parsed_answer": 6
+    },
+    {
+        "id": "recall_23",
+        "question": "How many globe are in the image? ",
+        "image_path": "entity_recall/images/recall_23.jpg",
+        "ground_truth": 2,
+        "model_answer": "```json\n{\"answer\": 2}\n```",
+        "parsed_answer": 2
+    },
+    {
+        "id": "counting_327",
+        "question": "How many garlic are in the image? ",
+        "image_path": "counting/images/counting_327.jpg",
+        "ground_truth": 11,
+        "model_answer": "```json\n{\"answer\": 10}\n```",
+        "parsed_answer": 10
+    },
+    {
+        "id": "counting_274",
+        "question": "How many pieces of salmon are in the image? ",
+        "image_path": "counting/images/counting_274.jpg",
+        "ground_truth": 0,
+        "model_answer": "```json\n{\"answer\": 6}\n```",
+        "parsed_answer": 6
+    },
+    {
+        "id": "counting_520",
+        "question": "How many clocks are there in the picture? ",
+        "image_path": "count2/counting2/counting_520.jpg",
+        "ground_truth": 23,
+        "model_answer": "",
+        "parsed_answer": "NaN"
+    },
+    {
+        "id": "counting_83",
+        "question": "How many cucumber are in the image? ",
+        "image_path": "counting/images/counting_83.jpg",
+        "ground_truth": 16,
+        "model_answer": "```json\n{\"answer\": 15}\n```",
+        "parsed_answer": 15
+    },
+    {
+        "id": "recall_45",
+        "question": "How many snooker balls are in the image? ",
+        "image_path": "entity_recall/images/recall_45.jpg",
+        "ground_truth": 13,
+        "model_answer": "```json\n{\"answer\": 22}\n```",
+        "parsed_answer": 22
+    },
+    {
+        "id": "counting_135",
+        "question": "How many bag are in the image? ",
+        "image_path": "counting/images/counting_135.jpg",
+        "ground_truth": 11,
+        "model_answer": "```json\n{\"answer\": 10}\n```",
+        "parsed_answer": 10
+    },
+    {
+        "id": "counting_438",
+        "question": "How many green cube are in the image? ",
+        "image_path": "counting/images/counting_438.jpg",
+        "ground_truth": 2,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    },
+    {
+        "id": "counting_599",
+        "question": "How many black pieces are there on the middle chessboard? ",
+        "image_path": "count2/counting2/counting_599.jpg",
+        "ground_truth": 11,
+        "model_answer": "",
+        "parsed_answer": "NaN"
+    },
+    {
+        "id": "counting_316",
+        "question": "How many plane are in the image? ",
+        "image_path": "counting/images/counting_316.jpg",
+        "ground_truth": 1,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    },
+    {
+        "id": "counting_261",
+        "question": "How many Chinese character are in the image? ",
+        "image_path": "counting/images/counting_261.jpg",
+        "ground_truth": 28,
+        "model_answer": "```json\n{\"answer\": 19}\n```",
+        "parsed_answer": 19
+    },
+    {
+        "id": "counting_258",
+        "question": "How many pieses of salmon are in the image? ",
+        "image_path": "counting/images/counting_258.jpg",
+        "ground_truth": 7,
+        "model_answer": "```json\n{\"answer\": 24}\n```",
+        "parsed_answer": 24
+    },
+    {
+        "id": "counting_451",
+        "question": "How many eggplant are in the image? ",
+        "image_path": "counting/images/counting_451.jpg",
+        "ground_truth": 6,
+        "model_answer": "```json\n{\"answer\": 6}\n```",
+        "parsed_answer": 6
+    },
+    {
+        "id": "counting_251",
+        "question": "How many dog are in the image? ",
+        "image_path": "counting/images/counting_251.jpg",
+        "ground_truth": 1,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    },
+    {
+        "id": "counting_568",
+        "question": "How many gourds are there in the picture? ",
+        "image_path": "count2/counting2/counting_568.jpg",
+        "ground_truth": 5,
+        "model_answer": "```json\n{\"answer\": 4}\n```",
+        "parsed_answer": 4
+    },
+    {
+        "id": "counting_93",
+        "question": "How many sweet poptato are in the image? ",
+        "image_path": "counting/images/counting_93.jpg",
+        "ground_truth": 2,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    },
+    {
+        "id": "counting_91",
+        "question": "How many boat are in the image? ",
+        "image_path": "counting/images/counting_91.jpg",
+        "ground_truth": 2,
+        "model_answer": "```json\n{\"answer\": 2}\n```",
+        "parsed_answer": 2
+    },
+    {
+        "id": "counting_495",
+        "question": "How many banana are in the image? ",
+        "image_path": "counting/images/counting_495.jpg",
+        "ground_truth": 14,
+        "model_answer": "```json\n{\"answer\": 11}\n```",
+        "parsed_answer": 11
+    },
+    {
+        "id": "counting_542",
+        "question": "How many people are there in the picture? ",
+        "image_path": "count2/counting2/counting_542.jpg",
+        "ground_truth": 4,
+        "model_answer": "```json\n{\"answer\": 4}\n```",
+        "parsed_answer": 4
+    },
+    {
+        "id": "recall_20",
+        "question": "How many scissors are in the image? ",
+        "image_path": "entity_recall/images/recall_20.jpg",
+        "ground_truth": 1,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    },
+    {
+        "id": "counting_238",
+        "question": "How many Chinese character are in the image? ",
+        "image_path": "counting/images/counting_238.jpg",
+        "ground_truth": 29,
+        "model_answer": "```json\n{\"answer\": 21}\n```",
+        "parsed_answer": 21
+    },
+    {
+        "id": "counting_497",
+        "question": "How many ruler are in the image? ",
+        "image_path": "counting/images/counting_497.jpg",
+        "ground_truth": 4,
+        "model_answer": "```json\n{\"answer\": 5}\n```",
+        "parsed_answer": 5
+    },
+    {
+        "id": "recall_207",
+        "question": "How many bananas are in the image? ",
+        "image_path": "entity_recall/images/recall_207.jpg",
+        "ground_truth": 2,
+        "model_answer": "```json\n{\"answer\": 2}\n```",
+        "parsed_answer": 2
+    },
+    {
+        "id": "counting_481",
+        "question": "How many triangle are in the image? ",
+        "image_path": "counting/images/counting_481.jpg",
+        "ground_truth": 6,
+        "model_answer": "```json\n{\"answer\": 5}\n```",
+        "parsed_answer": 5
+    },
+    {
+        "id": "counting_263",
+        "question": "How many caps are in the image? ",
+        "image_path": "counting/images/counting_263.jpg",
+        "ground_truth": 3,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    },
+    {
+        "id": "counting_290",
+        "question": "How many book are in the image? ",
+        "image_path": "counting/images/counting_290.jpg",
+        "ground_truth": 3,
+        "model_answer": "```json\n{\"answer\": 3}\n```",
+        "parsed_answer": 3
+    },
+    {
+        "id": "counting_252",
+        "question": "How many apple are in the image? ",
+        "image_path": "counting/images/counting_252.jpg",
+        "ground_truth": 10,
+        "model_answer": "```json\n{\"answer\": 10}\n```",
+        "parsed_answer": 10
+    },
+    {
+        "id": "recall_121",
+        "question": "How many lamp are in the image? ",
+        "image_path": "entity_recall/images/recall_121.jpg",
+        "ground_truth": 2,
+        "model_answer": "```json\n{\"answer\": 2}\n```",
+        "parsed_answer": 2
+    },
+    {
+        "id": "counting_133",
+        "question": "How many mongo are in the image? ",
+        "image_path": "counting/images/counting_133.jpg",
+        "ground_truth": 1,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    },
+    {
+        "id": "counting_179",
+        "question": "How many punctuation are in the image? ",
+        "image_path": "counting/images/counting_179.jpg",
+        "ground_truth": 1,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    },
+    {
+        "id": "counting_189",
+        "question": "How many can are in the image? ",
+        "image_path": "counting/images/counting_189.jpg",
+        "ground_truth": 3,
+        "model_answer": "```json\n{\"answer\": 3}\n```",
+        "parsed_answer": 3
+    },
+    {
+        "id": "counting_108",
+        "question": "How many zebra are in the image? ",
+        "image_path": "counting/images/counting_108.jpg",
+        "ground_truth": 1,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    },
+    {
+        "id": "counting_479",
+        "question": "How many fork are in the image? ",
+        "image_path": "counting/images/counting_479.jpg",
+        "ground_truth": 1,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    }
+]

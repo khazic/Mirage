@@ -1,0 +1,402 @@
+[
+    {
+        "id": 0,
+        "question": "Where is the broccoli in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/0_P02_04.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 0,
+        "question": "At , where is the adapter located relative to water filter? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/0_P02_05.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 1,
+        "question": "At , where is the kitchen roll located relative to microwave? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P02_128.jpg",
+        "ground_truth": "front",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 1,
+        "question": "Where is the pan in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P01_109.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 0,
+        "question": "Where is the kettle in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/0_P02_110.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": 0,
+        "question": "At , where is the adapter located relative to window? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/0_P02_101.jpg",
+        "ground_truth": "front",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 1,
+        "question": "At , where is the kitchen roll located relative to window? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P02_01.jpg",
+        "ground_truth": "front",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 3,
+        "question": "Where is the sunglass in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/3_P03_05.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": "counting_6",
+        "question": "Which side is the cat in blue clothes on compared to the cat in pink clothes?  Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "counting/images/counting_6.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 2,
+        "question": "Where is the washing up liquid in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/2_P01_104.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 4,
+        "question": "Where is the cutting board in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/4_P01_09.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": 1,
+        "question": "Where is the adapter in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P02_124.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": 1,
+        "question": "At , where is the sponge located relative to tap? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P03_113.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 0,
+        "question": "Where is the oven in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/0_P02_116.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 3,
+        "question": "Where is the kettle in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/3_P03_04.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": 1,
+        "question": "At , where is the rice stove located relative to window? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P01_103.jpg",
+        "ground_truth": "front",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": 0,
+        "question": "At , where is the kettle located relative to bread? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/0_P03_118.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"left\"}",
+        "parsed_answer": "left"
+    },
+    {
+        "id": 1,
+        "question": "Where is the water filter in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P02_119.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": 1,
+        "question": "Where is the microwave in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P01_103.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 2,
+        "question": "At , where is the tea box located relative to microwave? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/2_P02_105.jpg",
+        "ground_truth": "up",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": 4,
+        "question": "Where is the cup in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/4_P03_117.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": "counting_29",
+        "question": "Where is the person in relation to the dogs? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "counting/images/counting_29.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 0,
+        "question": "At , where is the kettle located relative to book? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/0_P03_121.jpg",
+        "ground_truth": "back",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 1,
+        "question": "At , where is the cutting board located relative to book? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P03_121.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": 0,
+        "question": "At , where is the water filter located relative to coffee machine? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/0_P02_124.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 3,
+        "question": "At , where is the sponge located relative to washing up liquid? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/3_P01_105.jpg",
+        "ground_truth": "back",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 2,
+        "question": "Where is the washing up liquid in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/2_P02_04.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": "counting_134",
+        "question": "Where is the K block in relation to the E block? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "counting/images/counting_134.jpg",
+        "ground_truth": "under",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 1,
+        "question": "Where is the knife in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P01_16.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 2,
+        "question": "At , where is the book located relative to kettle? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/2_P03_120.jpg",
+        "ground_truth": "front",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 1,
+        "question": "Where is the outlet in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P03_11.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 1,
+        "question": "Where is the oven in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P01_104.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 1,
+        "question": "At , where is the gloves located relative to tap? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P03_111.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 1,
+        "question": "Where is the outlet in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P03_113.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"back\"}",
+        "parsed_answer": "back"
+    },
+    {
+        "id": 0,
+        "question": "Where is the water filter in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/0_P02_09.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": 1,
+        "question": "At , where is the knife located relative to cutting board? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/0_P01_01.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 1,
+        "question": "At , where is the ball of dough located relative to water filter? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P02_112.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"front\"}",
+        "parsed_answer": "front"
+    },
+    {
+        "id": 2,
+        "question": "Where is the can in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/2_P03_04.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 0,
+        "question": "At , where is the rice pan located relative to spoon? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/0_P03_112.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 1,
+        "question": "Where is the washing up liquid in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P02_109.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 2,
+        "question": "At , where is the knife located relative to cup? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P01_01.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 1,
+        "question": "Where is the washing machine in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P02_04.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 1,
+        "question": "At , where is the water filter located relative to plate? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P02_126.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 4,
+        "question": "Where is the spice in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/4_P01_05.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 3,
+        "question": "At , where is the bottle located relative to potato? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/2_P01_09.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 0,
+        "question": "At , where is the plate located relative to washing up liquid? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/0_P02_01.jpg",
+        "ground_truth": "front",
+        "model_answer": "{\"answer\": \"right\"}",
+        "parsed_answer": "right"
+    },
+    {
+        "id": 1,
+        "question": "Where is the laundry washing liquid in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/1_P03_118.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 0,
+        "question": "Where is the rubbish bin in the picture? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/1/0_P02_113.jpg",
+        "ground_truth": "right",
+        "model_answer": "{\"answer\": \"under\"}",
+        "parsed_answer": "under"
+    },
+    {
+        "id": 1,
+        "question": "At , where is the tomatoes located relative to spice? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P01_17.jpg",
+        "ground_truth": "front",
+        "model_answer": "{\"answer\": \"back\"}",
+        "parsed_answer": "back"
+    },
+    {
+        "id": 2,
+        "question": "At , where is the potato located relative to soy milk? Analyze the position of the object in detail and then summarize its position using front, back, left, right, up, and under.",
+        "image_path": "Absolute_relative_positions/2/1_P01_09.jpg",
+        "ground_truth": "left",
+        "model_answer": "{\"answer\": \"left\"}",
+        "parsed_answer": "left"
+    }
+]

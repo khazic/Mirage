@@ -1,0 +1,29 @@
+[
+    {
+        "id": "counting_113",
+        "source_dataset": "counting_v2_0_to_250",
+        "question": "How many red building blocks are next to blue ones?",
+        "image_path": "./counting/images/counting_113.jpg",
+        "ground_truth": 13,
+        "model_answer": "```json\n{\"answer\": 5}\n```",
+        "parsed_answer": 5
+    },
+    {
+        "id": "counting_413",
+        "source_dataset": "counting_v2_251_to_500",
+        "question": "How many box are there on the left?",
+        "image_path": "./counting/images/counting_413.jpg",
+        "ground_truth": 2,
+        "model_answer": "```json\n{\"answer\": 2}\n```",
+        "parsed_answer": 2
+    },
+    {
+        "id": "2_P02_135",
+        "source_dataset": "A_R_2_1_2_3",
+        "question": "How many rolls of kitchen paper are there to the left of the juice?",
+        "image_path": "./Absolute_relative_positions/2/2_P02_135.jpg",
+        "ground_truth": 0,
+        "model_answer": "```json\n{\"answer\": 1}\n```",
+        "parsed_answer": 1
+    }
+]

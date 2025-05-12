@@ -1,0 +1,352 @@
+[
+    {
+        "id": "counting_449",
+        "source_dataset": "counting_v2_251_to_500",
+        "question": "How many sausage are there on the second layer?",
+        "image_path": "./counting/images/counting_449.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "counting_100",
+        "source_dataset": "counting_v2_0_to_250",
+        "question": "How many cups have straws on them?",
+        "image_path": "./counting/images/counting_100.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "1_P01_08",
+        "source_dataset": "A_R_2_1_2_3",
+        "question": "How many bottles and cups are to the left of the sink?",
+        "image_path": "./Absolute_relative_positions/2/1_P01_08.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "counting_recall_34",
+        "source_dataset": "entity_recall_0_to_250",
+        "question": "How many alpacas are there to the left of the brown alpaca?",
+        "image_path": "entity_recall/images/recall_125.jpg",
+        "ground_truth": 3
+    },
+    {
+        "id": "recall_306.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "How many people on white horses are there in front of the American soldier holding the American flag?",
+        "image_path": "entity_recall/images/recall_306.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "3_P01_05",
+        "source_dataset": "A_R_1_3_2_0",
+        "question": "How many peaches are being washed?",
+        "image_path": "./Absolute_relative_positions/1/3_P01_05.jpg",
+        "ground_truth": 5
+    },
+    {
+        "id": "counting_recall_50",
+        "source_dataset": "entity_recall_0_to_250",
+        "question": "How many plates are placed vertically on the second - layer of the middle table, excluding those on stools?",
+        "image_path": "entity_recall/images/recall_200.jpg",
+        "ground_truth": 12
+    },
+    {
+        "id": "0_P02_109",
+        "source_dataset": "A_R_1_3_2_0",
+        "question": "How many eggs are there on the table?",
+        "image_path": "./Absolute_relative_positions/2/0_P02_109.jpg",
+        "ground_truth": 8
+    },
+    {
+        "id": "recall_286.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "How many white objects are there to the right of the green object in the middle layer?",
+        "image_path": "entity_recall/images/recall_286.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "counting_recall_36",
+        "source_dataset": "entity_recall_0_to_250",
+        "question": "How many vases are there on the shelf to the upper left of the coffee machine?",
+        "image_path": "entity_recall/images/recall_133.jpg",
+        "ground_truth": 1
+    },
+    {
+        "id": "1_P01_17",
+        "source_dataset": "A_R_2_1_2_3",
+        "question": "How many bottles are in front of the bottle without label?",
+        "image_path": "./Absolute_relative_positions/2/1_P01_17.jpg",
+        "ground_truth": 4
+    },
+    {
+        "id": "recall_271.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "How many pens are placed on the white paper at the lower right side of the blue iron box?",
+        "image_path": "entity_recall/images/recall_271.jpg",
+        "ground_truth": 1
+    },
+    {
+        "id": "0_P02_119",
+        "source_dataset": "A_R_1_0_1_2",
+        "question": "How many of the pills on the left side of the picture have been consumed at least?",
+        "image_path": "./Absolute_relative_positions/1/0_P02_119.jpg",
+        "ground_truth": 4
+    },
+    {
+        "id": "counting_recall_24",
+        "source_dataset": "entity_recall_0_to_250",
+        "question": "How many cups are there on the table below the mural?",
+        "image_path": "entity_recall/images/recall_85.jpg",
+        "ground_truth": 3
+    },
+    {
+        "id": "3_P02_101",
+        "source_dataset": "A_R_1_3_2_0",
+        "question": "How many slices of bread are there in the bowl?",
+        "image_path": "./Absolute_relative_positions/1/3_P02_101.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "3_P02_101",
+        "source_dataset": "A_R_1_3_2_0",
+        "question": "How many cups are there filled with coffee?",
+        "image_path": "./Absolute_relative_positions/1/3_P02_101.jpg",
+        "ground_truth": 1
+    },
+    {
+        "id": "counting_recall_23",
+        "source_dataset": "entity_recall_0_to_250",
+        "question": "How many throw pillows are there on all the sofas?",
+        "image_path": "entity_recall/images/recall_78.jpg",
+        "ground_truth": 4
+    },
+    {
+        "id": "recall_292.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "How many children are there in front of the blue child?",
+        "image_path": "entity_recall/images/recall_292.jpg",
+        "ground_truth": 7
+    },
+    {
+        "id": "recall_281.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "How many white guitars are placed to the right of the blue guitar?",
+        "image_path": "entity_recall/images/recall_281.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "counting_106",
+        "source_dataset": "counting_v2_0_to_250",
+        "question": "How many wheels are not visible in the picture?",
+        "image_path": "./counting/images/counting_106.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "3_P01_03",
+        "source_dataset": "A_R_1_3_2_0",
+        "question": "How many bottles are there on the left table?",
+        "image_path": "./Absolute_relative_positions/1/3_P01_03.jpg",
+        "ground_truth": 6
+    },
+    {
+        "id": "counting_491",
+        "source_dataset": "counting_v2_251_to_500",
+        "question": "How many tennis are there on the right?",
+        "image_path": "./counting/images/counting_491.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "recall_294.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "How many slices of white-fleshed dragon fruit are there in the plate on the lower right?",
+        "image_path": "entity_recall/images/recall_294.jpg",
+        "ground_truth": 6
+    },
+    {
+        "id": "recall_266.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "How many butterflies are there to the right of the two yellow necklaces in the lower left corner of the picture?",
+        "image_path": "entity_recall/images/recall_266.jpg",
+        "ground_truth": 6
+    },
+    {
+        "id": "1_P03_28",
+        "source_dataset": "A_R_1_0_1_2",
+        "question": "How many spice bottles are to the left of the yellow bottle on the right side of the picture?",
+        "image_path": "./Absolute_relative_positions/1/3_P01_04.jpg",
+        "ground_truth": 19
+    },
+    {
+        "id": "3_P01_01",
+        "source_dataset": "A_R_1_3_2_0",
+        "question": "How many spoons are there on the left table?",
+        "image_path": "./Absolute_relative_positions/1/3_P01_01.jpg",
+        "ground_truth": 1
+    },
+    {
+        "id": "3_P01_05",
+        "source_dataset": "A_R_1_3_2_0",
+        "question": "How many cutlery pieces are there on the green board?",
+        "image_path": "./Absolute_relative_positions/1/3_P01_05.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "counting_172",
+        "source_dataset": "counting_v2_0_to_250",
+        "question": "How many people in the picture are on the ground?",
+        "image_path": "./counting/images/counting_172.jpg",
+        "ground_truth": 6
+    },
+    {
+        "id": "counting_388",
+        "source_dataset": "counting_v2_251_to_500",
+        "question": "How many plane are there on the right lane?",
+        "image_path": "./counting/images/counting_388.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "counting_361",
+        "source_dataset": "counting_v2_251_to_500",
+        "question": "How many mug are there in the first layer?",
+        "image_path": "./counting/images/counting_361.jpg",
+        "ground_truth": 8
+    },
+    {
+        "id": "1_P03_14",
+        "source_dataset": "A_R_2_1_2_3",
+        "question": "How many cups are to the right of the plate?",
+        "image_path": "./Absolute_relative_positions/2/1_P03_14.jpg",
+        "ground_truth": 1
+    },
+    {
+        "id": "counting_444",
+        "source_dataset": "counting_v2_251_to_500",
+        "question": "How many egg are there on the bottom row?",
+        "image_path": "./counting/images/counting_444.jpg",
+        "ground_truth": 3
+    },
+    {
+        "id": "recall_274.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "Are there a few pieces of white paper stuck right above the wheelchair on the left side of the picture?",
+        "image_path": "entity_recall/images/recall_274.jpg",
+        "ground_truth": 5
+    },
+    {
+        "id": "counting_172",
+        "source_dataset": "counting_v2_0_to_250",
+        "question": "How many people in the picture are on not the ground?",
+        "image_path": "./counting/images/counting_172.jpg",
+        "ground_truth": 1
+    },
+    {
+        "id": "counting_398",
+        "source_dataset": "counting_v2_251_to_500",
+        "question": "How many hammer are there on the right of the wrench?",
+        "image_path": "./counting/images/counting_398.jpg",
+        "ground_truth": 0
+    },
+    {
+        "id": "0_P01_106",
+        "source_dataset": "A_R_1_0_1_2",
+        "question": "How many plates are on top of the fork?",
+        "image_path": "./Absolute_relative_positions/1/0_P01_106.jpg",
+        "ground_truth": 19
+    },
+    {
+        "id": "counting_243",
+        "source_dataset": "counting_v2_0_to_250",
+        "question": "How many zebras are there behind the giraffe?",
+        "image_path": "./counting/images/counting_243.jpg",
+        "ground_truth": 3
+    },
+    {
+        "id": "recall_284.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "How many circular holes are there on the iron equipment in the middle of the picture?",
+        "image_path": "entity_recall/images/recall_282.jpg",
+        "ground_truth": 4
+    },
+    {
+        "id": "counting_402",
+        "source_dataset": "counting_v2_251_to_500",
+        "question": "How many corn are in the basket?",
+        "image_path": "./counting/images/counting_402.jpg",
+        "ground_truth": 8
+    },
+    {
+        "id": "recall_297.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "How many wine glasses are placed on the table to the right of the child?",
+        "image_path": "entity_recall/images/recall_297.jpg",
+        "ground_truth": 1
+    },
+    {
+        "id": "counting_recall_1",
+        "source_dataset": "entity_recall_0_to_250",
+        "question": "On the chessboard in the picture, how many chess pieces are there on the side that is farther away from the kettle among the pieces on both sides?",
+        "image_path": "entity_recall/images/recall_3.jpg",
+        "ground_truth": 16
+    },
+    {
+        "id": "2_P03_118",
+        "source_dataset": "A_R_2_1_2_3",
+        "question": "How many take-away boxes are there on the left side of the plate?",
+        "image_path": "./Absolute_relative_positions/2/2_P03_118.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "1_P01_01",
+        "source_dataset": "A_R_1_0_1_2",
+        "question": "How many plates are on the left side of the stove?",
+        "image_path": "./Absolute_relative_positions/1/1_P01_108.jpg",
+        "ground_truth": 6
+    },
+    {
+        "id": "counting_214",
+        "source_dataset": "counting_v2_0_to_250",
+        "question": "How many dolls are there on the shelf?",
+        "image_path": "./counting/images/counting_214.jpg",
+        "ground_truth": 4
+    },
+    {
+        "id": "counting_357",
+        "source_dataset": "counting_v2_251_to_500",
+        "question": "How many egg are in the pot?",
+        "image_path": "./counting/images/counting_357.jpg",
+        "ground_truth": 4
+    },
+    {
+        "id": "2_P02_105",
+        "source_dataset": "A_R_2_1_2_3",
+        "question": "How many cartons are there behind the pink jar?",
+        "image_path": "./Absolute_relative_positions/2/2_P02_105.jpg",
+        "ground_truth": 6
+    },
+    {
+        "id": "counting_1",
+        "source_dataset": "counting_v2_0_to_250",
+        "question": "How many planes are there behind the first truck?",
+        "image_path": "./counting/images/counting_1.jpg",
+        "ground_truth": 2
+    },
+    {
+        "id": "3_P02_03",
+        "source_dataset": "A_R_1_3_2_0",
+        "question": "How many broccoli are there in the pot?",
+        "image_path": "./Absolute_relative_positions/1/3_P02_03.jpg",
+        "ground_truth": 19
+    },
+    {
+        "id": "0_P02_09",
+        "source_dataset": "A_R_1_0_1_2",
+        "question": "How many blue cups are on the right side of the kitchen roll?",
+        "image_path": "./Absolute_relative_positions/1/0_P02_09.jpg",
+        "ground_truth": 3
+    },
+    {
+        "id": "recall_305.jpg",
+        "source_dataset": "entity_recall_250_to_500",
+        "question": "How many traffic lights are there to the right of the Mercedes-Benz in the picture?",
+        "image_path": "entity_recall/images/recall_305.jpg",
+        "ground_truth": 1
+    }
+]
